@@ -1,1 +1,1 @@
-const num=0
+export const num=0

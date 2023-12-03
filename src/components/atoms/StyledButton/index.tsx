@@ -1,7 +1,6 @@
-import React from 'react'
+import styled from 'styled-components'
+import { Button } from '@mui/material'
 
-export const StyledButton = () => {
-  return (
-    <div>StyledButton</div>
-  )
-}
+export const StyledButton = styled(Button)`
+  //border-radius: 10px;
+`
