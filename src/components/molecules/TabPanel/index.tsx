@@ -1,6 +1,4 @@
-//import { Typography } from '@mui/material';
 
-//import { StyledBox } from '../../atoms/StyledBox';
 
 interface TabPanelProps {
   children?: React.ReactNode;

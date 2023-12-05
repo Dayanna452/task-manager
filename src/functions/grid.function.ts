@@ -13,7 +13,7 @@ import {
   BreakpointJustifyContent,
 } from '../components/atoms/StyledGrid/grid.interface'
 
-type BreakpointType =
+export type BreakpointType =
   | 'xs'
   | 'xs2'
   | 'sm'

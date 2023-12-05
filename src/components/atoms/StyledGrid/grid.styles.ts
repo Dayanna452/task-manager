@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components'
 
 
 import { GridUIProps } from './grid.interface'
-import { getGridAlignItems, getGridDisplay, getGridFlexDirection, getGridJustifyContent, getGridMinHeight, getGridOffset, getGridSpacing } from '../../../interfaces/grid.function'
+import { getGridAlignItems, getGridDisplay, getGridFlexDirection, getGridJustifyContent, getGridMinHeight, getGridOffset, getGridSpacing } from '../../../functions/grid.function'
 
 export const GridWrapper = styled.div<GridUIProps>`
   --Grid-rowSpacing: ${({ rowSpacing, $spacing, container }) =>

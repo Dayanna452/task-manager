@@ -29,6 +29,8 @@ export type DisplayType =
   | 'inline-flex'
   | 'grid'
   | 'none'
+
+export type PositionType = 'static' | 'absolute' | 'relative' | 'fixed' | 'sticky'
 export interface BreakpointJustifyContent {
   xs?: JustifyContentType
   xs2?: JustifyContentType
@@ -75,6 +77,22 @@ export interface BreakpointDisplay {
   xl3?: DisplayType
   xl4?: DisplayType
   xl5?: DisplayType
+}
+
+export interface BreakpointPosition {
+  xs?: PositionType
+  xs2?: PositionType
+  sm?: PositionType
+  sm2?: PositionType
+  md?: PositionType
+  md2?: PositionType
+  lg?: PositionType
+  lg2?: PositionType
+  xl?: PositionType
+  xl2?: PositionType
+  xl3?: PositionType
+  xl4?: PositionType
+  xl5?: PositionType
 }
 
 export interface BreakpointFlexDirection {
