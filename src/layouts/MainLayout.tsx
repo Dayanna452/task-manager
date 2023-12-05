@@ -1,27 +1,32 @@
-import { Box, Grid } from '@mui/material'
+import { useState } from 'react'
 
-import SwipeableTemporaryDrawer from '../components/organisms/Sidebar'
+import { MenuLineIcon } from '../icons/MenuLineIcon'
+import { Sidebar } from '../components/organisms/Sidebar'
+import { FunctionLineIcon } from '../icons/FunctionLineIcon'
+import { StyledGrid } from '../components/atoms/StyledGrid'
+import { StyledBox } from '../components/atoms/StyledBox'
 
-interface MainLayoutProps{
-  children:React.ReactNode
+interface MainLayoutProps {
+  children: React.ReactNode
 }
 
-export const MainLayout:React.FC<MainLayoutProps> = ({children}) => {
+export const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
+  const navigation = [
+    { name: 'dashboard', icon: <FunctionLineIcon /> },
+    { name: 'my task', icon: <MenuLineIcon /> }
+  ]
+  const [value, setValue] = useState(0)
+
   return (
-    <Box>
-      <Grid container>
-        <Grid item xs={4}>
-          <SwipeableTemporaryDrawer/>
-        </Grid>
-        <Grid item xs={8}>content</Grid>
-      </Grid>
-      <header>
-        header
-      </header>
-        {children}
-      <footer>
-        footer
-      </footer>
-    </Box>
+    <StyledBox padding={20}>
+      <StyledGrid container columnSpacing={4}>
+        <StyledGrid xs={4} md={3} lg={2}>
+          <Sidebar navigation={navigation} value={value} setValue={setValue} />
+        </StyledGrid>
+        <StyledGrid xs={8}>
+          {children}
+        </StyledGrid>
+      </StyledGrid>
+    </StyledBox>
   )
 }

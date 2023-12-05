@@ -1,7 +1,6 @@
-import { ThemeProvider } from '@mui/material'
+import { ThemeProvider } from "styled-components"
+import Theme from "../styles/theme.styles"
 
-import theme from '../styles/theme'
-import { ThemeContext } from './ThemeContext'
 
 interface ProvidersProps{
   children:React.ReactNode
@@ -9,6 +8,8 @@ interface ProvidersProps{
 
 export const Providers:React.FC<ProvidersProps> = ({children}) => {
   return (
-    <ThemeProvider theme={theme} /*  value={{}} */>{children}</ThemeProvider>
+    <ThemeProvider theme={Theme}>
+      {children}
+    </ThemeProvider>
   )
 }
