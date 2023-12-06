@@ -1,18 +1,15 @@
-import { StyledBox } from '../../atoms/StyledBox'
-import { StyledTab } from '../../atoms/StyledTab'
+import { useContext } from 'react';
+
 import { Tabs } from '../../molecules/Tabs'
-import { SidebarProps } from '../Sidebar'
+import { StyledTab } from '../../atoms/StyledTab'
+import { StyledBox } from '../../atoms/StyledBox'
+import {SidebarContext} from '../../../contexts/SidebarContext';
 
-export const MobileMenu = (props: SidebarProps) => {
-  const { navigation, value, setValue } = props
+export const MobileMenu = () => {
 
-  const handleChange = (e: React.SyntheticEvent, newValue: string) => {
-    e.preventDefault()
-    setValue(newValue)
-  }
+  const {handleChange,value, navigation}=useContext(SidebarContext)
 
   return (
-    <nav>
       <StyledBox
         width='100%'
         position='fixed'
@@ -35,6 +32,5 @@ export const MobileMenu = (props: SidebarProps) => {
           })}
         </Tabs>
       </StyledBox>
-    </nav>
   )
 }

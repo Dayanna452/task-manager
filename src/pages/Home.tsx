@@ -1,9 +1,12 @@
-import React from 'react'
+import { Dashboard } from '../containers/Dashboard'
+import { useContext } from 'react'
+import { SidebarContext } from '../contexts/SidebarContext'
+import { ListTask } from '../containers/ListTask'
 
 const Home = () => {
-  return (
-    <div>Home</div>
-  )
+  const { value } = useContext(SidebarContext)
+
+  return <>{value === 'dashboard' ? <Dashboard /> : <ListTask />}</>
 }
 
 export default Home

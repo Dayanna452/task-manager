@@ -50,7 +50,6 @@ interface Palette {
   grey: GreyColor;
   text?: TextColor;
   background: Background;
-  //backgroundPlan: string;
 }
 
 interface Breakpoints {

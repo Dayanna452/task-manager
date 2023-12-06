@@ -1,30 +1,26 @@
+import { useContext } from 'react'
 import { Link } from 'react-router-dom'
+
 import { Tabs } from '../../molecules/Tabs'
 import { StyledTab } from '../../atoms/StyledTab'
 import { StyledBox } from '../../atoms/StyledBox'
 import { LogoIcon } from '../../../icons/LogoIcon'
+import { SidebarContext } from '../../../contexts/SidebarContext'
 export interface NavigationProps {
   name: string
   icon: React.ReactElement
 }
-
 export interface SidebarProps {
   value: string
   navigation: NavigationProps[]
   setValue: React.Dispatch<React.SetStateAction<string>>
 }
 
-export const Sidebar = (props: SidebarProps) => {
-  const { navigation, value, setValue } = props
-
-  const handleChange = (e: React.SyntheticEvent, newValue: string) => {
-    e.preventDefault()
-    setValue(newValue)
-  }
-
+export const Sidebar = () => {
+  const { handleChange , value, navigation} = useContext(SidebarContext)
 
   return (
-    <Tabs  borderRadius={24} bgColor={c => c.palette.grey[400]}>
+    <Tabs borderRadius={24} bgColor={c => c.palette.grey[400]}>
       <Link to='/'>
         <StyledBox paddingBottom={36}>
           <LogoIcon />

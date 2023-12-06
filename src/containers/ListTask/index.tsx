@@ -1,7 +1,5 @@
-import React from 'react'
+import { TaskLayout } from '../../layouts/TaskLayout'
 
 export const ListTask = () => {
-  return (
-    <div>ListTask</div>
-  )
+  return <TaskLayout>lista</TaskLayout>
 }

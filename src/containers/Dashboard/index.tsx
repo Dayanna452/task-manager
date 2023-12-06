@@ -1,6 +1,10 @@
+import { TaskLayout } from '../../layouts/TaskLayout'
+import { Board } from '../../components/templates/dashboard/Board'
 
 export const Dashboard = () => {
   return (
-    <div>Dashboard</div>
+    <TaskLayout>
+      <Board />
+    </TaskLayout>
   )
 }

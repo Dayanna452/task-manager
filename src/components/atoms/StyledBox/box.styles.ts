@@ -6,7 +6,6 @@ import { getPadding, getPosition } from '../../../functions/box.function'
 export const BoxWrapper = styled.div<BoxProps>`
   position: ${({ position }) =>
     typeof position === 'string' ? getPosition(position) : 'static'};
-  padding: ${({ padding }) => `${padding}px` || 0};
   padding-left: ${({ paddingLeft }) => `${paddingLeft}px` || 0};
   padding-right: ${({ padddingRight }) => `${padddingRight}px` || 0};
   padding-bottom: ${({ paddingBottom }) => `${paddingBottom}px` || 0};

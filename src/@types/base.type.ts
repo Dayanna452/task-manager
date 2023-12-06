@@ -14,22 +14,6 @@ export interface BreakpointSizesType {
   xl5?: number | string
 }
 
-export interface BreakpointSizesType2 {
-  xs?: string
-  xs2?: string
-  sm?: string
-  sm2?: string
-  md?: string
-  md2?: string
-  lg?: string
-  lg2?: string
-  xl?: string
-  xl2?: string
-  xl3?: string
-  xl4?: string
-  xl5?: string
-}
-
 
 export type ColSpanType =
   | '1'
