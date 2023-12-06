@@ -2,7 +2,7 @@ import { TextStyled } from './text.styles'
 import { TextProps } from './text.interface'
 import { ThemeType } from '../../../interfaces/theme.interface'
 
-export const TextUI: React.FC<TextProps> = ({
+export const StyledText: React.FC<TextProps> = ({
   sx,
   $color: color,
   textAlign,

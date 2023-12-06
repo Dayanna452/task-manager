@@ -23,6 +23,8 @@ export const Column: React.FC<TaskColumn> = ({ title, tasks, id }) => {
               <Draggable key={task.id} draggableId={task.id} index={index}>
                 {draggableProvided => (
                   <TaskCard
+                    ios
+                    android
                     ref={draggableProvided.innerRef}
                     {...draggableProvided.draggableProps}
                     {...draggableProvided.dragHandleProps}

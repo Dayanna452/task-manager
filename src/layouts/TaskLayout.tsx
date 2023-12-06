@@ -11,8 +11,8 @@ export const TaskLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
       <AddTaskModal open={openModal} setOpen={setOpenModal} />
-      <StyledBox padddingRight={10} paddingTop={30} paddingLeft={10}>
-        <StyledGrid container rowSpacing={3}>
+      <StyledBox padddingRight={10} paddingTop={20} paddingLeft={10}>
+        <StyledGrid container>
           <StyledGrid xs={12}>
             <StyledGrid container justifyContent={'space-between'}>
               <StyledGrid xs={10}>

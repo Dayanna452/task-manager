@@ -30,10 +30,9 @@ export const palette = {
     400: '#E5B454'
   },
   success: {
-    100: '#F9EED7',
-    200: '#F2DAAB',
-    300: '#EBC77F',
-    400: '#E5B454'
+    200: '#1DDAB8',
+    300: '#4CBC9A',
+    400: '#3EB27D'
   },
   common: {
     white: '#FFFFFF',

@@ -7,6 +7,7 @@ export const StyledList = styled.div`
   grid-template-columns: 100% 100% 100%;
   overflow-x: auto;
   grid-gap: 16px;
+  height: 72vh;
 
   @media (min-width: ${({ theme }) => theme.breakpoints.mobileS}) {
     grid-template-columns: 90% 90% 90%;

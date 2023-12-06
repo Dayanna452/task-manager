@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { DragDropContext, DropResult } from "react-beautiful-dnd";
 import { StyledList } from "./board.styles";
 import { Column } from "../Column";
