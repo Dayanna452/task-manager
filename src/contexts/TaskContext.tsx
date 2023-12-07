@@ -12,6 +12,7 @@ interface TaskContextProps {
   tasksToDo: string[]
   tasksDone: string[]
   tasksInProgress: string[]
+  deleteTask: (id: string) => Promise<FetchResult<any> | undefined>
   createTask: (task: TaskSend) => Promise<FetchResult<any> | undefined>
 }
 
@@ -20,7 +21,7 @@ export const TaskContext = createContext<TaskContextProps>(
 )
 
 const Provider = ({ children }: { children: React.ReactNode }) => {
-  const { data, loading, error,createTask,create } = useTask()
+  const { data, loading, error, createTask, create, deleteTask } = useTask()
 
   const tasks = data?.tasks || []
   const tasksList = formatTasks(tasks)
@@ -33,6 +34,7 @@ const Provider = ({ children }: { children: React.ReactNode }) => {
     <TaskContext.Provider
       value={{
         tasksList,
+        deleteTask,
         colsOrder,
         createTask,
         tasksToDo,

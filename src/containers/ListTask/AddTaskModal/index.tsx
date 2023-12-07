@@ -1,3 +1,4 @@
+import moment from 'moment'
 import { useContext, useEffect, useState } from 'react'
 
 import { Modal } from '../../../components/molecules/Modal'
@@ -12,12 +13,11 @@ import square from '../../../assets/square.svg'
 import assign from '../../../assets/assign.svg'
 import estimate from '../../../assets/estimate.svg'
 import calendar from '../../../assets/calendar.svg'
-import moment from 'moment'
 import { useUsers } from '../../../hooks/useUser'
 import { TaskContext } from '../../../contexts/TaskContext'
 import { PointEstimate, Status, TaskTag } from '../../../models/task'
 
-interface AddTask {
+export interface AddTask {
   open: boolean
   setOpen: React.Dispatch<React.SetStateAction<boolean>>
 }
@@ -29,6 +29,7 @@ export const AddTaskModal = ({ ...props }: AddTask) => {
     name: '',
     pointEstimate: 'EIGHT',
     status: 'TODO',
+    dueDate: moment().format() as any,
     tags: []
   })
   const { createTask } = useContext(TaskContext)

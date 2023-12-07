@@ -1,21 +1,26 @@
-import { forwardRef, useState } from 'react'
+import { forwardRef, useContext, useState } from 'react'
 import moment from 'moment'
 import { useTheme } from 'styled-components'
 
-import { TaskCardWrapper } from './card.styles'
+import { TaskCardWrapper, TaskOptions } from './card.styles'
 import { TaskCardProps } from './card.interface'
 import { StyledBox } from '../../atoms/StyledBox'
 import { StyledText } from '../../atoms/StyledText'
 import { StyledGrid } from '../../atoms/StyledGrid'
 import { StyledBadge } from '../../atoms/StyledBadge'
 import { StyledAvatar } from '../../atoms/StyledAvatar'
+import { StyledButton } from '../../atoms/StyledButton'
+import { TaskContext } from '../../../contexts/TaskContext'
 import { StyledIconButton } from '../../atoms/StyledIconButton'
 
 import { DotsIcon } from '../../../icons/DotsIcon'
 import { AlarmIcon } from '../../../icons/AlarmIcon'
+import { TrashIcon } from '../../../icons/TrashIcon'
+import { PencilIcon } from '../../../icons/PencilIcon'
 import { CommentIcon } from '../../../icons/CommentIcon'
 import { NodeTreeIcon } from '../../../icons/NodeTreeIcon'
 import { AttachmentIcon } from './../../../icons/AttachmentIcon'
+import { DeleteTaskModal } from '../../../containers/ListTask/DeleteTaskModal'
 
 export const TaskCard = forwardRef<HTMLDivElement, TaskCardProps>(
   (
@@ -26,6 +31,8 @@ export const TaskCard = forwardRef<HTMLDivElement, TaskCardProps>(
       android,
       comments = 3,
       nodes = 5,
+      tags,
+      id,
       pointEstimate = 4,
       dueDate = 'TODAY',
       ...props
@@ -33,10 +40,26 @@ export const TaskCard = forwardRef<HTMLDivElement, TaskCardProps>(
     ref
   ) => {
     const theme = useTheme()
-    const [openModal, setOpenModal] = useState(false)
+    const [openOptions, setOpenOptions] = useState(false)
+    const [openConfirm, setOpenConfirm] = useState(false)
+    const { deleteTask } = useContext(TaskContext)
+    const handleDelete = () => {
+      setOpenOptions(false)
+      setOpenConfirm(true)
+    }
+
+    const handleConfirmDelete = () => {
+      id && deleteTask(id)
+      setOpenConfirm(false)
+    }
 
     return (
       <TaskCardWrapper ref={ref} {...props}>
+        <DeleteTaskModal
+          open={openConfirm}
+          setOpen={setOpenConfirm}
+          handleConfirm={() => handleConfirmDelete()}
+        />
         <StyledGrid
           container
           justifyContent={'space-between'}
@@ -53,8 +76,26 @@ export const TaskCard = forwardRef<HTMLDivElement, TaskCardProps>(
           <StyledIconButton
             icon={DotsIcon}
             fill={theme.palette.common.white}
-            onClick={() => setOpenModal(!openModal)}
+            onClick={() => setOpenOptions(!openOptions)}
           />
+          {openOptions && (
+            <TaskOptions>
+              <StyledButton
+                text={'Edit'}
+                style={{ color: '#fff' }}
+                startIcon={<PencilIcon />}
+                variant='text'
+                onClick={() => setOpenOptions(false)}
+              />
+              <StyledButton
+                text={'Delete'}
+                style={{ color: '#fff' }}
+                startIcon={<TrashIcon />}
+                variant='text'
+                onClick={() => handleDelete()}
+              />
+            </TaskOptions>
+          )}
         </StyledGrid>
         <StyledGrid
           container
@@ -79,7 +120,7 @@ export const TaskCard = forwardRef<HTMLDivElement, TaskCardProps>(
           />
         </StyledGrid>
         <StyledGrid container alignItems={'center'} style={{ gap: 10 }}>
-          {ios && (
+          {tags?.find(el => el === 'IOS') && (
             <StyledBadge
               text={'IOS APP'}
               variant='translucent'
@@ -88,7 +129,7 @@ export const TaskCard = forwardRef<HTMLDivElement, TaskCardProps>(
               $color={c => c.palette.secondary[400]}
             />
           )}
-          {android && (
+          {tags?.find(el => el === 'ANDROID') && (
             <StyledBadge
               text={'ANDROID'}
               variant='translucent'

@@ -2,7 +2,6 @@ import { ThemeType } from '../../../interfaces/theme.interface'
 import { StyledLabel } from '../StyledLabel'
 import { MultiSelectUIProps } from './reactSelect.interface'
 import { components } from 'react-select'
-import moment from 'moment'
 import {
   colourStyles,
   RSelectWrapper,
@@ -13,7 +12,6 @@ import { StyledText } from '../StyledText'
 import { StyledGrid } from '../StyledGrid'
 import { StyledCalendar } from '../StyledCalendar'
 import { StyledBox } from '../StyledBox'
-import { useState } from 'react'
 
 export const ReactSelectUI: React.FC<MultiSelectUIProps> = ({
   id,
@@ -33,8 +31,7 @@ export const ReactSelectUI: React.FC<MultiSelectUIProps> = ({
   }
 
   const Select = props.creatable ? RCreatableWrapper : RSelectWrapper
-  //const [calendarVal, setCalendarVal] = useState<unknown>()
-  const { Option, Menu, MenuList , Input} = components
+  const { Option, Menu, MenuList } = components
   const IconOption = (props: any) => (
     <Option {...props}>
       <StyledGrid container style={{ gap: 5 }}>
@@ -79,8 +76,6 @@ export const ReactSelectUI: React.FC<MultiSelectUIProps> = ({
     )
   }
 
- 
-
 
   return (
     <ReactSelectWrapper
@@ -96,7 +91,6 @@ export const ReactSelectUI: React.FC<MultiSelectUIProps> = ({
         </StyledLabel>
       )}
       <Select
-        //autocomplete='off'
         styles={colourStyles}
         id={id}
         inputId={id}
