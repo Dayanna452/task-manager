@@ -1,4 +1,4 @@
-import { forwardRef } from 'react'
+import { forwardRef, useState } from 'react'
 import moment from 'moment'
 import { useTheme } from 'styled-components'
 
@@ -21,7 +21,8 @@ export const TaskCard = forwardRef<HTMLDivElement, TaskCardProps>(
   (
     {
       name,
-      ios,assign,
+      ios,
+      assign,
       android,
       comments = 3,
       nodes = 5,
@@ -32,6 +33,7 @@ export const TaskCard = forwardRef<HTMLDivElement, TaskCardProps>(
     ref
   ) => {
     const theme = useTheme()
+    const [openModal, setOpenModal] = useState(false)
 
     return (
       <TaskCardWrapper ref={ref} {...props}>
@@ -48,7 +50,11 @@ export const TaskCard = forwardRef<HTMLDivElement, TaskCardProps>(
             textTransform='capitalize'
             $color={c => c.palette.common.white}
           />
-          <StyledIconButton icon={DotsIcon} fill={theme.palette.common.white} />
+          <StyledIconButton
+            icon={DotsIcon}
+            fill={theme.palette.common.white}
+            onClick={() => setOpenModal(!openModal)}
+          />
         </StyledGrid>
         <StyledGrid
           container
@@ -93,7 +99,10 @@ export const TaskCard = forwardRef<HTMLDivElement, TaskCardProps>(
           )}
         </StyledGrid>
         <StyledGrid container justifyContent={'space-between'}>
-          <StyledAvatar src={assign?.avatar||'https://picsum.photos/50'} alt='sm' />
+          <StyledAvatar
+            src={assign?.avatar || 'https://picsum.photos/50'}
+            alt='sm'
+          />
           <StyledGrid xs={8}>
             <StyledGrid
               container

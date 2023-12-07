@@ -11,7 +11,7 @@ export interface TaskCardProps {
   comments?: number
   android?: boolean
   status?:Status
-  id:string
+  id?:string
   createAt?:Date
   position?:number
   tags?:TaskTag[]

@@ -3,6 +3,8 @@ import { createContext } from 'react'
 import { useTask } from '../hooks/useTask'
 import { TaskType } from '../@types/task.type'
 import { getTaskIds, formatTasks } from '../utils/task'
+import { FetchResult } from '@apollo/client'
+import { Task, TaskSend } from '../models/task'
 
 interface TaskContextProps {
   tasksList: TaskType
@@ -10,6 +12,7 @@ interface TaskContextProps {
   tasksToDo: string[]
   tasksDone: string[]
   tasksInProgress: string[]
+  createTask: (task: TaskSend) => Promise<FetchResult<any> | undefined>
 }
 
 export const TaskContext = createContext<TaskContextProps>(
@@ -17,7 +20,7 @@ export const TaskContext = createContext<TaskContextProps>(
 )
 
 const Provider = ({ children }: { children: React.ReactNode }) => {
-  const { data, loading, error } = useTask()
+  const { data, loading, error,createTask,create } = useTask()
 
   const tasks = data?.tasks || []
   const tasksList = formatTasks(tasks)
@@ -31,6 +34,7 @@ const Provider = ({ children }: { children: React.ReactNode }) => {
       value={{
         tasksList,
         colsOrder,
+        createTask,
         tasksToDo,
         tasksDone,
         tasksInProgress

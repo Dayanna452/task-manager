@@ -1,13 +1,23 @@
 import { User } from "./user"
 
 export interface Task {
-  __typename: 'Task'
+  __typename?: 'Task'
   id: string
   name: string
   pointEstimate: PointEstimate
   dueDate: Date
   tags: TaskTag[]
   assignee?: User
+  status: Status
+}
+
+export interface TaskSend {
+  id?: string
+  name: string
+  pointEstimate: PointEstimate
+  dueDate: Date
+  tags: TaskTag[]
+  assigneeId?: string
   status: Status
 }
 

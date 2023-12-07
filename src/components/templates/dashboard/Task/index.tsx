@@ -28,7 +28,7 @@ const Icons = styled.div`
 
 export const Task = ({ task, index }: { task: any; index: number }) => {
   return (
-    <Draggable draggableId={`${task.id}`} key={task.id} index={index}>
+    <Draggable draggableId={`${task.id||''}`} key={task.id||''} index={index}>
       {(provided, snapshot) => (
         <Container
           ref={provided.innerRef}

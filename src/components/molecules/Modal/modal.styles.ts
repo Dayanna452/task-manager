@@ -24,6 +24,7 @@ export const ModalContent = styled.div<{ width?: string | number }>`
   position: absolute;
   top: 50%;
   left: 50%;
+  padding:20px;
   transform: translate(-50%, -50%);
   width: ${({ width }) =>
     width ? (typeof width === 'number' ? `${width}px` : width) : '500px'};

@@ -22,11 +22,11 @@ export const getButtonBgColor = (
       bgColorHover: 'transparent'
     },
     contained: {
-      bgColor: theme.palette[color][100],
-      bgColorHover: theme.palette[color][100]
+      bgColor: theme.palette[color][400],
+      bgColorHover: theme.palette[color][400]
     },
     translucent: {
-      bgColor: `${theme.palette[color][100]}1a`,
+      bgColor: `${theme.palette[color][400]}1a`,
       bgColorHover: `${theme.palette[color][400]}26`
     }
   }
@@ -48,8 +48,8 @@ export const getButtonTextColor = (
       textColorHover: theme.palette[color][400]
     },
     contained: {
-      textColor: theme.palette[color].contrastText,
-      textColorHover: theme.palette[color].contrastText
+      textColor: theme.palette.common.white,
+      textColorHover: theme.palette.common.white
     },
     translucent: {
       textColor: theme.palette[color][100],

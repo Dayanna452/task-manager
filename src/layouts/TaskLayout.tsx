@@ -9,9 +9,10 @@ import { StyledIconButton } from '../components/atoms/StyledIconButton'
 
 export const TaskLayout = ({ children }: { children: React.ReactNode }) => {
   const [openModal, setOpenModal] = useState(false)
+  
   return (
     <>
-      <AddTaskModal open={openModal} setOpen={setOpenModal} />
+      <AddTaskModal open={openModal} setOpen={setOpenModal}  />
       <StyledBox padddingRight={10} paddingTop={20} paddingLeft={10}>
         <StyledGrid container>
           <StyledGrid xs={12}>

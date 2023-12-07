@@ -23,7 +23,7 @@ export const Column: React.FC<TaskColumn> = ({ id, tasks, title }) => {
             {...droppableProvided.droppableProps}
           >
             {tasks?.map((task, index) => (
-              <Draggable key={task.id} draggableId={task.id} index={index}>
+              <Draggable key={task.id||''} draggableId={task.id||''} index={index}>
                 {draggableProvided => (
                   <TaskCard
                     ios
