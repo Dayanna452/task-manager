@@ -55,14 +55,9 @@ Components structure based in Atomic Design
  - utils
 
 
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
 ## Stay in touch
 
-- Author - (https://brand-ebon.vercel.app/)
-- Website - ([https://nestjs.com/](https://brand-ebon.vercel.app/))
+- Author Website - (https://brand-ebon.vercel.app/)
 - LinkedIn - (https://www.linkedin.com/in/dayanna-villanueva-174588206/)
 
 ## License
