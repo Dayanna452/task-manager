@@ -24,8 +24,8 @@ export const IconButtonWrapper = styled.a<IconBtnStyledProps>`
       : size
       ? getIconSize(size)
       : getIconSize('medium')};
-  border: ${({ theme, borderColor }) =>
-    borderColor && `1px solid ${borderColor(theme)}`};
+  border: ${({ theme, borderColor ,selected}) =>
+    borderColor ? `1px solid ${borderColor(theme)}`:selected&&`1px solid ${theme.palette.primary[400]}`};
   background-color: ${({ theme, $color: color }) => color && color(theme)};
   border-radius: ${({ shape, borderRadius }) =>
     borderRadius

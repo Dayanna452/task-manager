@@ -13,6 +13,7 @@ export interface BoxProps {
   left?:string
   right?:string
   bottom?:string
+  borderRadius?:number
   $display?: DisplayType | BreakpointDisplay
   height?: string
   paddingTop?: number

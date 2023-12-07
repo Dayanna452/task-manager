@@ -1,4 +1,5 @@
 import { forwardRef } from 'react'
+import moment from 'moment'
 import { useTheme } from 'styled-components'
 
 import { TaskCardWrapper } from './card.styles'
@@ -19,13 +20,13 @@ import { AttachmentIcon } from './../../../icons/AttachmentIcon'
 export const TaskCard = forwardRef<HTMLDivElement, TaskCardProps>(
   (
     {
-      title,
-      ios,
+      name,
+      ios,assign,
       android,
       comments = 3,
       nodes = 5,
-      points = 4,
-      date = 'TODAY',
+      pointEstimate = 4,
+      dueDate = 'TODAY',
       ...props
     },
     ref
@@ -40,7 +41,7 @@ export const TaskCard = forwardRef<HTMLDivElement, TaskCardProps>(
           alignItems={'center'}
         >
           <StyledText
-            text={title}
+            text={name}
             fontSize={18}
             fontWeight={400}
             letterSpacing='1px'
@@ -58,12 +59,12 @@ export const TaskCard = forwardRef<HTMLDivElement, TaskCardProps>(
             fontSize={15}
             letterSpacing='1px'
             fontWeight={400}
-            text={`${points} points`}
+            text={`${pointEstimate} points`}
             textTransform='capitalize'
             $color={c => c.palette.common.white}
           />
           <StyledBadge
-            text={date}
+            text={moment(dueDate).format('DD MMMM YYYY')}
             variant='translucent'
             fontSize={15}
             bgColor={c => c.palette.common.white}
@@ -92,9 +93,13 @@ export const TaskCard = forwardRef<HTMLDivElement, TaskCardProps>(
           )}
         </StyledGrid>
         <StyledGrid container justifyContent={'space-between'}>
-          <StyledAvatar src='https://picsum.photos/50' alt='sm' />
+          <StyledAvatar src={assign?.avatar||'https://picsum.photos/50'} alt='sm' />
           <StyledGrid xs={8}>
-            <StyledGrid container alignItems={'center'} justifyContent={'flex-end'}>
+            <StyledGrid
+              container
+              alignItems={'center'}
+              justifyContent={'flex-end'}
+            >
               <StyledIconButton
                 icon={AttachmentIcon}
                 fill={theme.palette.common.white}
@@ -119,7 +124,7 @@ export const TaskCard = forwardRef<HTMLDivElement, TaskCardProps>(
                     $color={c => c.palette.common.white}
                   />
                   <StyledIconButton
-                  size='small'
+                    size='small'
                     icon={CommentIcon}
                     fill={theme.palette.common.white}
                   />

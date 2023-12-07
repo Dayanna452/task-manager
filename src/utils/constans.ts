@@ -1,16 +1,26 @@
-export function reorderColumnList(
-  sourceCol: any,
-  starIndex: number,
-  endIndex: number
-) {
-  const newTaskIds = Array.from(sourceCol.taskIds)
-  const [removed] = newTaskIds.splice(starIndex, 1)
-  newTaskIds.splice(endIndex, 0, removed)
+import { TaskIdsType, TaskType } from '../@types/task.type'
 
-  const newColumn = {
-    ...sourceCol,
-    taskIds: newTaskIds
+export const initialData = (colsOrder: any) => {
+  const data = {
+    tasks: {} as TaskType,
+    columns: {
+      TODO: {
+        id: 'TODO',
+        title: 'Working',
+        taskIds: []
+      },
+      IN_PROGRESS: {
+        id: 'IN_PROGRESS',
+        title: 'In Progress',
+        taskIds: []
+      },
+      DONE: {
+        id: 'DONE',
+        title: 'Completed',
+        taskIds: []
+      }
+    } as TaskIdsType,
+    colsOrder
   }
-
-  return newColumn
+  return data
 }

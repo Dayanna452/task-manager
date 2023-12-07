@@ -6,12 +6,10 @@ import { StyledGrid } from '../components/atoms/StyledGrid'
 import { MobileMenu } from '../components/organisms/MobileMenu'
 
 export const MainLayout = ({ children }: { children: React.ReactNode }) => {
-
   return (
     <StyledBox padding={{ xs: 0, md: 32 }}>
       <StyledGrid container columnSpacing={{ xs: 0, md: 4 }}>
-        <MobileMenu
-        />
+        <MobileMenu />
         <StyledGrid
           xs={5}
           $display={{ xs: 'none', md: 'block' }}

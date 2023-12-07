@@ -1,10 +1,11 @@
+import { useState } from 'react'
+
 import { PlusSquareIcon } from '../icons/PlusSquareIcon'
 import { StyledBox } from '../components/atoms/StyledBox'
 import { StyledGrid } from '../components/atoms/StyledGrid'
 import { Switchers } from '../components/molecules/Switchers'
-import { StyledIconButton } from '../components/atoms/StyledIconButton'
 import { AddTaskModal } from '../containers/ListTask/AddTaskModal'
-import { useState } from 'react'
+import { StyledIconButton } from '../components/atoms/StyledIconButton'
 
 export const TaskLayout = ({ children }: { children: React.ReactNode }) => {
   const [openModal, setOpenModal] = useState(false)

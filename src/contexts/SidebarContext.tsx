@@ -1,7 +1,8 @@
 import { createContext, useState } from 'react'
-import { FunctionLineIcon } from '../icons/FunctionLineIcon'
+
 import { PlusIcon } from '../icons/PlusIcon'
 import { MenuLineIcon } from '../icons/MenuLineIcon'
+import { FunctionLineIcon } from '../icons/FunctionLineIcon'
 import { NavigationProps } from '../components/organisms/Sidebar'
 
 interface SidebarContextProps {
@@ -30,7 +31,6 @@ const Provider = ({ children }: { children: React.ReactNode }) => {
     e.preventDefault()
     setValue(newValue)
   }
-  console.log('value', value)
 
   return (
     <SidebarContext.Provider

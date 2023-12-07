@@ -1,21 +1,24 @@
 import { Droppable, Draggable } from 'react-beautiful-dnd'
 
-/* import { TaskCard } from '../../../base/TaskCard' */
-import {
-  StyledTaskColumn,
-  StyledTaskColumnBody,
-  StyledTaskColumnTitle
-} from './column.styles'
 import { TaskColumn } from './column.interface'
 import { TaskCard } from '../../../molecules/TaskCard'
+import { StyledText } from '../../../atoms/StyledText'
+import { TaskColumnWrapper, ColumnBody } from './column.styles'
 
-export const Column: React.FC<TaskColumn> = ({ title, tasks, id }) => {
+export const Column: React.FC<TaskColumn> = ({ id, tasks, title }) => {
   return (
-    <StyledTaskColumn>
-      <StyledTaskColumnTitle>{title}</StyledTaskColumnTitle>
+    <TaskColumnWrapper>
+      <StyledText
+        text={title}
+        fontSize={18}
+        lineHeight={32}
+        fontWeight={600}
+        letterSpacing={'0.75px'}
+        $color={c=>c.palette.grey[200]}
+      />
       <Droppable droppableId={id}>
         {droppableProvided => (
-          <StyledTaskColumnBody
+          <ColumnBody
             ref={droppableProvided.innerRef}
             {...droppableProvided.droppableProps}
           >
@@ -33,9 +36,9 @@ export const Column: React.FC<TaskColumn> = ({ title, tasks, id }) => {
                 )}
               </Draggable>
             ))}
-          </StyledTaskColumnBody>
+          </ColumnBody>
         )}
       </Droppable>
-    </StyledTaskColumn>
+    </TaskColumnWrapper>
   )
 }

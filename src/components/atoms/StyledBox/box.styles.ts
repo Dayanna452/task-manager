@@ -18,7 +18,7 @@ export const BoxWrapper = styled.div<BoxProps>`
   bottom: ${({ bottom }) => bottom};
   width: ${({ width }) => width};
   height: ${({ height }) => height};
-
+  border-radius: ${({ borderRadius }) => `${borderRadius}px` || 0};
 
   //Padding
   padding: ${({ padding }) => getPadding(padding, 'xs')};
